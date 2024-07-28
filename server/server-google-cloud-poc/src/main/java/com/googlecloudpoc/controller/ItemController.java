@@ -33,10 +33,6 @@ public class ItemController {
 		return ResponseEntity.ok(itemService.getAllItems());
 	}
 	
-	private void get() {
-		
-	}
-	
 	@PostMapping("/add")
 	public ResponseEntity<ItemDto> addItem(@RequestBody ItemDto itemRequestDto) {
 		return ResponseEntity.ok(itemService.addItem(itemRequestDto));
