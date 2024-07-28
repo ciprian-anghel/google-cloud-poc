@@ -33,5 +33,6 @@ build/
 .vscode/
 
 
+# Ignore the bin directory at any level
 /bin/
 **/bin/
