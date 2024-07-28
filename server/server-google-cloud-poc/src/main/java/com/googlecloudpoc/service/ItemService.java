@@ -12,7 +12,7 @@ import com.googlecloudpoc.repository.ItemRepository;
 
 @Service
 public class ItemService {
-
+	
 	private final ItemRepository itemRepository;
 
 	@Autowired
