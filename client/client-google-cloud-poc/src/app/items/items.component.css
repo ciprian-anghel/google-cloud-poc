@@ -1,0 +1,10 @@
+section form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+section form > div:first-child {
+    flex-grow: 1;
+}

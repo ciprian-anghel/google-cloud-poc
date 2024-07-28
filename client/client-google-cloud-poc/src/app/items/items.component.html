@@ -1,0 +1,18 @@
+<section class="container">
+    <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+        <div>
+            <input id="itemDescriptionInput" type="text" class="form-control" name="itemDescriptionInput" ngModel
+                minlength="3" maxlength="100" required />
+        </div>
+
+        <div>
+            <button [disabled]="itemForm.form.invalid" type="submit" class="btn btn-primary">
+                Add Item
+            </button>
+        </div>
+    </form>
+
+    @for (item of items; track $index) {
+        <app-item [id]="item.id" [description]="item.description" (deletedItemId)="onItemDeleted($event)"></app-item>
+    }
+</section>
