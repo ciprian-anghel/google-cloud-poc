@@ -1,4 +1,4 @@
-package com.google_cloud_poc;
+package com.googlecloudpoc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
