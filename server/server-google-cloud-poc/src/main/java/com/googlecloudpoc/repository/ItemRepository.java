@@ -1,15 +1,9 @@
 package com.googlecloudpoc.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.googlecloudpoc.entity.Item;
 
-public interface ItemRepository {
+public interface ItemRepository extends JpaRepository<Item, Integer> {
 
-	List<Item> findAll();
-	
-	Item save(Item item);
-	
-	int deleteById(int id);
-	
 }
