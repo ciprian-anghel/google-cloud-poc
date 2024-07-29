@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> The following configuration was used to serve instances on Google Cloud Run and Google Cloud Sql with postgres.
+> The following configuration was used to serve instances on Google Cloud Run and Google Cloud SQL with Postgres.
 
 # Server side key notes
 ## Connect to Google Cloud SQL database
@@ -17,7 +17,7 @@ spring.datasource.username=${DB_USER}
 spring.datasource.password=${DB_PASS}
 spring.datasource.driver-class-name=org.postgresql.Driver
 ```
-The following Environment Variables are set to the Google Run instance:
+The following Environment Variables are set to the Google Cloud Run instance:
 - DB_NAME=[database_name]
 - INSTANCE_CONNECTION_NAME=[Connection name of the google sql instance]
 - DB_USER=[database username]
