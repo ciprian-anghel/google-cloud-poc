@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> The following notes apply for configuring instances on Google Cloud Run and Google Cloud Sql with postgres.
+> The following configuration was used to deploy instances on Google Cloud Run and Google Cloud Sql with postgres.
 
 # Server side key notes
 ## Connect to Google Cloud SQL database
