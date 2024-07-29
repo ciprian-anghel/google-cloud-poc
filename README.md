@@ -1,5 +1,5 @@
 # Server side key notes
-## Connect to Google Cloud SQL database notes
+## Connect to Google Cloud SQL database
 ### 1. pom.xml dependency
 ```
 <dependency>
