@@ -1,7 +1,3 @@
-#https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application
-#https://spring.io/guides/gs/spring-boot-docker
-#https://www.baeldung.com/dockerizing-spring-boot-application
-
 # Stage 1: Build the application
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
