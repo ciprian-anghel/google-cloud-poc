@@ -8,7 +8,10 @@ import { catchError, Observable } from 'rxjs';
 })
 export class ItemRepository {
 
-  private readonly apiBaseUrl = 'http://localhost:8080/item';
+  //TODO: 'serverInstanceUrl' should be read at startup somehow from the host machine
+  // private readonly serverInstanceUrl = 'http://localhost:8080';
+  private readonly serverInstanceUrl = 'https://google-cloud-poc-new-nztfnltfhq-uc.a.run.app'
+  private readonly itemApiBaseUrl = this.serverInstanceUrl + '/item';
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +21,7 @@ export class ItemRepository {
 
   getAllItems(): Observable<ItemDto[]> {
     return this.http.get<ItemDto[]>(
-      `${this.apiBaseUrl}/all`,
+      `${this.itemApiBaseUrl}/all`,
       this.httpOptions
     ).pipe(
       catchError(this.handleError('Items retrieval failed'))
@@ -27,7 +30,7 @@ export class ItemRepository {
 
   addItem(item: ItemDto): Observable<ItemDto>{
     return this.http.post<ItemDto>(
-      `${this.apiBaseUrl}/add`,
+      `${this.itemApiBaseUrl}/add`,
       item,
       this.httpOptions
     ).pipe(
@@ -37,7 +40,7 @@ export class ItemRepository {
 
   deleteItem(idToDelete: number): Observable<any> {
     return this.http.delete(
-      `${this.apiBaseUrl}/delete?id=` + idToDelete,
+      `${this.itemApiBaseUrl}/delete?id=` + idToDelete,
       this.httpOptions
     ).pipe(
       catchError(this.handleError('Deleting item failed'))
