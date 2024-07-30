@@ -18,7 +18,7 @@ import com.googlecloudpoc.service.ItemService;
 
 @RestController
 @RequestMapping("/item")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${client.instance.url}")
 public class ItemController {
 	
 	private final ItemService itemService;
