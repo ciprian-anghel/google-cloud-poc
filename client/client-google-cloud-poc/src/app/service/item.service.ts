@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
+export class ItemService {  
 
   constructor(private repository: ItemRepository) { }
 
@@ -21,4 +21,5 @@ export class ItemService {
   deleteItem(id: number): Observable<any> {
     return this.repository.deleteItem(id);
   }
+ 
 }
