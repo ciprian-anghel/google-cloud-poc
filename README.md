@@ -1,3 +1,8 @@
+# POC of application deployed on Google Cloud which is composed of:
+1. Google Cloud SQL postgres database
+2. Google Cloud Run - client side - Angular, Dockerized, Nginx
+3. Google Cloud Run - server side - Spring Boot, Dockerized
+
 > [!IMPORTANT]
 > The following configuration was used to serve instances on Google Cloud Run and Google Cloud SQL with Postgres.
 
