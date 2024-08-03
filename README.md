@@ -30,7 +30,7 @@
 4. Choose this repository, master branch and the Dockerfile location
 5. PORT: 8080
 
-# Some notes to be remembered
+# Some server side notes to be remembered
 ## 1. Connect to Google Cloud SQL database
 - Add to pom.xml:
 ```
