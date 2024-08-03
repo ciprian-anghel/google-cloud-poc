@@ -3,32 +3,46 @@
 2. Google Cloud Run - client side - Angular, Dockerized, Nginx
 3. Google Cloud Run - server side - Spring Boot, Dockerized
 
-> [!IMPORTANT]
-> The following configuration was used to serve instances on Google Cloud Run and Google Cloud SQL with Postgres.
+# Configuration on Google Cloud
+## Google Cloud SQL
+1. Create Google Cloud SQL instance
+2. Region: Finland for example
+3. Create a database
 
-# Server side key notes
-## Connect to Google Cloud SQL database
-### 1. pom.xml dependency
+## Backend instance
+1. Create Google Cloud Run instance
+2. Continuously deploy from a repository
+3. Choose this repository, master branch and the Dockerfile location
+4. Region: Same as previous
+5. Environment Variables
+- INSTANCE_CONNECTION_NAME=[Connection name of the google cloud sql instance]
+- DB_NAME=[database_name]
+- DB_USER=[database username]
+- DB_PASS=[database password]
+- CLIENT_URL=[client instance url] to be added after client instance is created
+6. Cloud SQL connections should be the database address from previous step
+
+## Client instance
+1. Change ```serverInstanceUrl``` from ```environment.prod.ts``` with the server address:
+- ```https://github.com/ciprian-anghel/google-cloud-poc/blob/master/client/client-google-cloud-poc/src/environments/environment.prod.ts```
+2. Create Google Cloud Run instance
+3. Continuously deploy from a repository
+4. Choose this repository, master branch and the Dockerfile location
+5. PORT: 8080
+
+# Some notes to be remembered
+## 1. Connect to Google Cloud SQL database
+- Add to pom.xml:
 ```
 <dependency>
 	<groupId>com.google.cloud.sql</groupId>
 	<artifactId>postgres-socket-factory</artifactId>
 </dependency>
 ```
-### 2. application.properties
+- application.properties
 ```
 spring.datasource.url=jdbc:postgresql:///${DB_NAME}?socketFactory=com.google.cloud.sql.postgres.SocketFactory&cloudSqlInstance=${INSTANCE_CONNECTION_NAME}
 spring.datasource.username=${DB_USER}
 spring.datasource.password=${DB_PASS}
 spring.datasource.driver-class-name=org.postgresql.Driver
 ```
-The following Environment Variables are set to the Google Cloud Run instance:
-- DB_NAME=[database_name]
-- INSTANCE_CONNECTION_NAME=[Connection name of the google sql instance]
-- DB_USER=[database username]
-- DB_PASS=[database password]
-- CLIENT_URL=[client instance url]
-
-### Documentation
-- [Connect to Cloud SQL for PostgreSQL from Cloud Run](https://cloud.google.com/sql/docs/postgres/connect-instance-cloud-run)  
-- [Connecting to Cloud SQL - Postgres](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/main/cloud-sql/postgres/servlet/README.md)
