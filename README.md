@@ -27,6 +27,7 @@ The following Environment Variables are set to the Google Cloud Run instance:
 - INSTANCE_CONNECTION_NAME=[Connection name of the google sql instance]
 - DB_USER=[database username]
 - DB_PASS=[database password]
+- CLIENT_URL=[client instance url]
 
 ### Documentation
 - [Connect to Cloud SQL for PostgreSQL from Cloud Run](https://cloud.google.com/sql/docs/postgres/connect-instance-cloud-run)  
