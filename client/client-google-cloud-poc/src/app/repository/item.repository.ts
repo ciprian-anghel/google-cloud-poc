@@ -8,12 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ItemRepository {
-
-  //TODO: 'serverInstanceUrl' should be read at startup somehow from the host machine
-  // private readonly serverInstanceUrl = 'http://localhost:8080';
-  // private readonly serverInstanceUrl = 'https://google-cloud-poc-new-nztfnltfhq-uc.a.run.app'
-  //private readonly itemApiBaseUrl = this.serverInstanceUrl + '/item';
-
+  
   private readonly serverInstanceUrl: string = environment.serverInstanceUrl + '/item';
 
   private httpOptions = {
