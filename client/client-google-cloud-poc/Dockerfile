@@ -8,7 +8,8 @@ COPY . /app
 RUN ng build --configuration=production
 
 # STAGE 2: Run
-FROM nginx:latest
+#FROM nginx:latest
+FROM nginx:stable-alpine
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/client-google-cloud-poc/browser /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
